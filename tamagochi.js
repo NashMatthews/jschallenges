@@ -77,7 +77,7 @@ Use || and && to impplement minutes. If hour = more than 6 they need feeding. If
     if (plooples.hp == 0){
         console.log(`You're a terrible person! You didn't take good care of ${plooples.name} and now they're dead! I hope you're proud of yourself!`)
     }
-    else if (((cHour - plooples.lastFedHour) >= 6) && ((cMins - plooples.lastFedMins) >= 0)){
+    else if (((cHour - plooples.lastFedHour) > 6) || ((cHour - plooples.lastFedHour) == 6) && ((cMins - plooples.lastFedMins) > 0)){
         console.log(plooples.noFeedPet(plooples.hp))
     }
     else{
