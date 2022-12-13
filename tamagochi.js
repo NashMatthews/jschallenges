@@ -48,11 +48,11 @@ class Pet {
 
     noFeedPet (hp) {
         this.hp = hp;
-        return `Where's the food!? ${this.name} is bloody starving! Their last feeding time was ${(this.lastFedHour) + ":" + (this.lastFedMins)}. Their HP has fallen to (${this.hp}). ${this.name} will need to be fed by ${(cHour + 1) + ":" + (cMins)} or they will lose 10 more HP!!!`
+        return `Where's the food!? ${this.name} is bloody starving! Their last feeding time was ${(this.lastFedHour) + ":" + (this.lastFedMins)}! Their HP has fallen to (${this.hp}). ${this.name} will need to be fed by ${(cHour + 1) + ":" + (cMins)} or they will lose 10 more HP!!!`
     }
     noWaterPet (hp) {
         this.hp = hp;
-        return `*Gasp!* So thirsty! ${this.name} needs some water, quick! Their last feeding time was ${(this.lastWateredHour) + ":" + (this.lastWateredMins)}. Their HP has fallen to (${this.hp}). ${this.name} better get some more water by ${(cHour + 1) + ":" + (cMins)} or they will lose 5 more HP!!!`
+        return `*Gasp!* So thirsty! ${this.name} needs some water, quick! Their last drink was at ${(this.lastWateredHour) + ":" + (this.lastWateredMins)}! Their HP has fallen to (${this.hp}). ${this.name} better get some more water by ${(cHour + 1) + ":" + (cMins)} or they will lose 5 more HP!!!`
     }
 }
 
