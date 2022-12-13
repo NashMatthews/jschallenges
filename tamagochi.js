@@ -58,30 +58,40 @@ class Pet {
 
 // create a variable to fill in the Pet constructor. Set hp (health points) to 100 as a starting point. This will decrease if the pet is not fed.
 
-const plooples = new Pet(100, "Plooples", 1, "Cat-Dog", 10, 10);
+const plooples = new Pet(10, "Plooples", 1, "Cat-Dog", 10, 10);
 
 // console.log to update the time the pet was last fed and return a message. (hour, minute)
 
 plooples.feedPet(2, 15);
 plooples.waterPet(4, 36);
 
+// if statement to reduce HP by 10 if it's been over 6 hours since feeding
+
+
+
 /* if/else statement to check how long it's been since the last feeding.
 If it's been more than 6 hours, return the 'noFeedPet' message.
 If it's been less than 6 hours, return a message saying the pet doesn't need feeding.
 Use || and && to impplement minutes. If hour = more than 6 they need feeding. If hour = 6 and minute > 0 they need feeding.*/
 
-if (((cHour - plooples.lastFedHour) > 6) || ((cHour - plooples.lastFedHour) == 6) && ((cMins - plooples.lastFedMins) > 0)){
-    console.log(plooples.noFeedPet(plooples.hp))
-}
-else{
-    console.log(`${plooples.name} isn't hungry yet!`)
-}
+    if (plooples.hp == 0){
+        console.log(`You're a terrible person! You didn't take good care of ${plooples.name} and now they're dead! I hope you're proud of yourself!`)
+    }
+    else if (((cHour - plooples.lastFedHour) >= 6) && ((cMins - plooples.lastFedMins) >= 0)){
+        console.log(plooples.noFeedPet(plooples.hp))
+    }
+    else{
+        console.log(`${plooples.name} isn't hungry yet!`)
+    }
 
 // same as above but for watering
 
-if (((cHour - plooples.lastWateredHour) > 3) || ((cHour - plooples.lastWateredHour) == 3) && ((cMins - plooples.lastWateredMins) > 0)){
-    console.log(plooples.noWaterPet(plooples.hp))
-}
-else{
-    console.log(`${plooples.name} isn't thirsty yet!`)
-}
+    if (plooples.hp == 0){
+        console.log(`You're a terrible person! You didn't take good care of ${plooples.name} and now they're dead! I hope you're proud of yourself!`)
+    }
+    else if (((cHour - plooples.lastWateredHour) > 3) || ((cHour - plooples.lastWateredHour) == 3) && ((cMins - plooples.lastWateredMins) > 0)){
+        console.log(plooples.noWaterPet(plooples.hp))
+    }
+    else{
+        console.log(`${plooples.name} isn't thirsty yet!`)
+    }
