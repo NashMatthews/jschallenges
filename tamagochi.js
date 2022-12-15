@@ -48,17 +48,17 @@ class Pet {
 
     noFeedPet (hp) {
         this.hp = hp;
-        return `Where's the food!? ${this.name} is bloody starving! Their last feeding time was ${(this.lastFedHour) + ":" + (this.lastFedMins)}! Their HP has fallen to (${this.hp}). ${this.name} will need to be fed by ${(cHour + 1) + ":" + (cMins)} or they will lose 10 more HP!!!`
+        return `Where's the food!? ${this.name} is bloody starving! Their last feeding time was ${(this.lastFedHour) + ":" + (this.lastFedMins)}! Their HP has fallen to ${this.hp}. ${this.name} will need to be fed by ${(cHour + 1) + ":" + (cMins)} or they will lose 10 more HP!!!`
     }
     noWaterPet (hp) {
         this.hp = hp;
-        return `*Gasp!* So thirsty! ${this.name} needs some water, quick! Their last drink was at ${(this.lastWateredHour) + ":" + (this.lastWateredMins)}! Their HP has fallen to (${this.hp}). ${this.name} better get some more water by ${(cHour + 1) + ":" + (cMins)} or they will lose 5 more HP!!!`
+        return `*Gasp!* So thirsty! ${this.name} needs some water, quick! Their last drink was at ${(this.lastWateredHour) + ":" + (this.lastWateredMins)}! Their HP has fallen to ${this.hp}. ${this.name} better get some more water by ${(cHour + 1) + ":" + (cMins)} or they will lose 5 more HP!!!`
     }
 }
 
 // create a variable to fill in the Pet constructor. Set hp (health points) to 100 as a starting point. This will decrease if the pet is not fed.
 
-const plooples = new Pet(30, "Plooples", 1, "Cat-Dog", 10, 10);
+const plooples = new Pet(20, "Plooples", 1, "Cat-Dog", 10, 10);
 
 // console.log to update the time the pet was last fed and return a message. (hour, minute)
 
