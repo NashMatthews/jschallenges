@@ -1,0 +1,113 @@
+/* cyberpet CSS BY desk 2 (John) */
+body{
+    background-color: lightgoldenrodyellow;
+  }
+
+  #navbar {
+    background-color:aqua;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+ 
+ }
+ 
+ #navbar a {
+     color: black;
+     font-size: 25px;
+     background-color: none;
+     text-decoration: none;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ }
+
+
+  .gameTitle{
+    color:green ;
+    font-size: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border:solid 5px;
+    text-align: center;
+
+    /* add type of color on the color: ; code e.g. blue, yellow, white ,black,
+    The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model- could you use flexbox as substitute */
+}
+.intro{
+  color: ;
+  transform:translate(0px, 25px);
+}
+.img1{
+  height: 300px;
+  width: 300px;
+  border:solid ;
+  transform:translate(0px,75px);
+}
+.img2{
+  height: 300px;
+  width: 300px;
+  border:solid ;
+  transform:translate(0px,75px);
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+.foodButton{
+  height: ;
+  width: ;
+  background-color: ;
+  transform:translate(0px, 200px);
+  border:solid ;
+
+}
+.drinkButton{
+  height:;
+  width:;
+  background-color: ;
+  transform:translate(160px, 95px);
+  border:solid  ;
+  /* for border: solid ; add a color if you want */
+}
+.sleepButton{
+  height: ;
+  width: ;
+  background-color: ;
+  transform:translate(320px, -10px);
+  border:solid  ;
+}
+.eatButton{
+  height: ;
+  width: ;
+  background-color:  ;
+  transform:translate(480px, -116px);
+  border:solid  ;
+}
+.waterSkiedButton{
+  height: ;
+  width: ;
+  background-color: ;
+  transform:translate(640px, -221px);
+  border:solid  ;
+}
+#healthScore{
+  height: ;
+  width: ;
+  background-color: ;
+  transform:translate(0px, -200px);
+  border:solid  ;
+}
+#happinessScore{
+  height: ;
+  width: ;
+  background-color: ;
+  transform:translate(160px, -305px);
+   border:solid  ;
+}
+/* We could add more as we progress with the coding from HTML and JS */
+
+.game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

@@ -92,16 +92,16 @@ horse.addEventListener("click", () =>{
 
 // limit the number of clicks on a button within a certain amount of time (experimental)
 
-var times = 0;
-function checkTime(btn) {
-    if(times < 0) {
-        times++;
-    }
-    else {
+// function links to the HTML - if HTML button is clicked, execute this function
+function feedTime(btn) {
+    
+    // disable button
         btn.disabled = true;
-        setTimeout(function() { times = 0;}, 3000);
+
+    // enable button after 3 seconds
+        setTimeout(function() { btn.disabled = false;
+        }, 3000);
     }
-}
 
 // functions for the action buttons, complete with hilarious messages
 
@@ -110,25 +110,42 @@ feed.addEventListener("click", () =>{
     this.hunger -= 10;
 })
 
-
+// limit clicks on 'play' button
+function playTime(btn) {
+    btn.disabled = true;
+    setTimeout(function() {btn.disabled = false;
+    }, 5000);
+}
 play.addEventListener("click", () =>{
     placeholder.textContent = `What fun! ${petName} soooo happy!`;
-
 })
 
+// limit clicks on 'sleep' button
+function sleepTime(btn) {
+    btn.disabled = true;
+    setTimeout(function() {btn.disabled = false;
+    }, 7000);
+}
 sleep.addEventListener("click", () =>{
     placeholder.textContent = `${petName} has slept and risen with the dawn, rested and prepared to take on another day.`;
 })
 
+// limit clicks on 'shear' button
+function shearTime(btn) {
+    btn.disabled = true;
+    setTimeout(function() {btn.disabled = false;
+    }, 9000);
+}
 shear.addEventListener("click", () =>{
     placeholder.textContent = `${petName} is feeling dapper as fuck in their new haircut!`
 })
 
+// limit checks on 'change' button
+function changeTime(btn) {
+    btn.disabled = true;
+    setTimeout(function() {btn.disabled = false;
+    }, 9000);
+}
 change.addEventListener("click", () =>{
     placeholder.textContent = `Braying happily, ${petName} trots off on their shiny new shoes!`
 })
-
-
-
-/* if hunger, sleep, play, shear/change get to certain levels, change the picture
-*/
