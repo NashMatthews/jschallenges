@@ -73,6 +73,9 @@ class Horse extends BasePet {
 const placeholder = document.getElementById("placeholder");
 const input = document.getElementById("input");
 const submit = document.getElementById("name");
+const sheep = document.getElementById("sheep");
+const horse = document.getElementById("horse");
+const start = document.getElementById("start");
 const list = document.getElementById("list");
 const feed = document.getElementById("feed");
 const play = document.getElementById("play");
@@ -89,6 +92,7 @@ let intervalTimerIndividual;
 
 sheep.style.visibility = "hidden";
 horse.style.visibility = "hidden";
+start.style.visibility = "hidden";
 feed.style.visibility = "hidden";
 sleep.style.visibility = "hidden";
 play.style.visibility = "hidden";
@@ -118,6 +122,7 @@ submit.addEventListener("click", () =>{
 
 sheep.addEventListener("click", () =>{
     placeholder.textContent = `${petName} the sheep!? Baaa-utiful!`;
+    start.style.visibility = "visible";
     feed.style.visibility = "visible";
     sleep.style.visibility = "visible";
     play.style.visibility = "visible";
@@ -145,11 +150,29 @@ horse.addEventListener("click", () =>{
     window.blahblah = "Horse"
 });
 
+/* "Start Game" button: Rather than the game starting when the name is input, or when the animal is selected,
+  it will start when this button is clicked.
+  A different function should execute depending on which animal has been selected
+*/
+
+start.addEventListener("click", () =>{
+
+  if (blahblah == "sheep"){
+    gameLoopSheep;
+  }
+  else if (blahblah == "horse"){
+    gameLoopHorse;
+  }
+
+})
+
 /* Game loop for sheep begins
   cheacks if sheep is still alive
   if it is, it increase hunger, fatigue and wool length levels by random amounts each second
   decreases happiness amount
   if sheep is dead, return message
+
+  This should also display the hunger, fatigue, happiness and wool length levels onscreen
 */
 
 const gameLoopSheep = () => {
@@ -168,7 +191,7 @@ const gameLoopSheep = () => {
   }
   else if (petSheep.stillAlive == false){
     console.log("GAME OVER! Pet sheep is dead!")
-    // window.alert("GAME OVER! Your pet is dead!")
+    window.alert("GAME OVER! Your pet is dead!")
     clearInterval(intervalTimerIndividual)
   }
 }
@@ -178,6 +201,8 @@ const gameLoopSheep = () => {
   if it is, it increase hunger and fatigue levels by random amounts each second
   decreases happiness and horse shoe health amount
   if horse is dead, return message
+
+  This should also display the hunger, fatigue, happiness and horse shoe health levels onscreen
 */
 
 const gameLoopHorse = () => {

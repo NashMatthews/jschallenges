@@ -79,7 +79,7 @@ justify-content: center;
   border-radius: 5px;
 }
 
-#feed, #play, #sleep, #shear, #change{
+#feed, #play, #sleep, #shear, #change, #start{
   background-color: transparent;
   color: black;
   border-width: 4px;
