@@ -10,17 +10,29 @@
 
 /* UPDATE!!!
 
-Went through a lot of errors with Jenny and fixed most of them.
-The main issue at the moment is keeping the game from cycling through as soon as the page loads,
-rather than waiting for the 'Submit', and then animal selector button to be clicked.
+Kept the game loop from starting as soon as pet name is submitted
 
-We get a "petSheep is not defined" error only because it's cycling through before we've assigned the input name to petName,
-so we just need a way to stop the cycle before that button, until the button is clicked... I think.
+Hunger/Fatigue/Happiness/Wool/Shoe levels aren't increasing/decreasing
 
-*** HAPPY HOLIDAYS!!! ***
+When horse button is clicked and game is started it still runs the sheep game loop
+
 */
 
+// link to HTML elements
 
+const placeholder = document.getElementById("placeholder");
+const stats = document.getElementById("stats");
+const input = document.getElementById("input");
+const submit = document.getElementById("name");
+const sheep = document.getElementById("sheep");
+const horse = document.getElementById("horse");
+const start = document.getElementById("start");
+const list = document.getElementById("list");
+const feed = document.getElementById("feed");
+const play = document.getElementById("play");
+const sleep = document.getElementById("sleep");
+const shear = document.getElementById("shear");
+const change = document.getElementById("change");
 
 // declare initial BasePet class
 
@@ -68,20 +80,7 @@ class Horse extends BasePet {
 
   const petHorse = new Horse("", "Horse", 50, 50, 50, true, 50);
 
-// link to HTML elements
 
-const placeholder = document.getElementById("placeholder");
-const input = document.getElementById("input");
-const submit = document.getElementById("name");
-const sheep = document.getElementById("sheep");
-const horse = document.getElementById("horse");
-const start = document.getElementById("start");
-const list = document.getElementById("list");
-const feed = document.getElementById("feed");
-const play = document.getElementById("play");
-const sleep = document.getElementById("sleep");
-const shear = document.getElementById("shear");
-const change = document.getElementById("change");
 
 // declare necessary variables for later in the code
 
@@ -99,7 +98,7 @@ play.style.visibility = "hidden";
 shear.style.visibility = "hidden";
 change.style.visibility = "hidden";
 
-// Only cycle through the script up to this point until the 'Submit' button is pressed
+// Only cycle through the script up to this point until the 'Submit' button is pressed????????????????
 
 // Choose name input
 
@@ -113,7 +112,7 @@ submit.addEventListener("click", () =>{
     new BasePet(petName, "", 50, 50, 50, true);
 });
 
-// Only cycle through the script up to this point until an animal selecter button is clicked
+// Only cycle through the script up to this point until an animal selecter button is clicked??????????????????
 
 /* If you click the 'Sheep' button, the animal buttons disappear
   a message appears
@@ -140,6 +139,7 @@ sheep.addEventListener("click", () =>{
 
 horse.addEventListener("click", () =>{
     placeholder.textContent = `Is ${petName} a sheep? Neigh, it's a horse!!!`;
+    start.style.visibility = "visible";
     feed.style.visibility = "visible";
     sleep.style.visibility = "visible";
     play.style.visibility = "visible";
@@ -155,16 +155,7 @@ horse.addEventListener("click", () =>{
   A different function should execute depending on which animal has been selected
 */
 
-start.addEventListener("click", () =>{
 
-  if (blahblah == "sheep"){
-    gameLoopSheep;
-  }
-  else if (blahblah == "horse"){
-    gameLoopHorse;
-  }
-
-})
 
 /* Game loop for sheep begins
   cheacks if sheep is still alive
@@ -177,21 +168,31 @@ start.addEventListener("click", () =>{
 
 const gameLoopSheep = () => {
   if (petSheep.stillAlive == true){
-    console.log(`${petName}'s hunger level is: ${petSheep.hunger}`);
-    console.log(`${petName}'s fatigue level is: ${petSheep.fatigue}`);
-    console.log(`${petName}'s happiness level is: ${petSheep.happiness}`);
-    console.log(`${petName}'s wool length is: ${petSheep.woolLength} units`);
 
-    petSheep.hunger += Math.floor(Math.random()*10)+1
-    petSheep.fatigue += Math.floor(Math.random()*10)+1
-    petSheep.happiness -= Math.floor(Math.random()*10)+1
-    petSheep.woolLength += Math.floor(Math.random()*10)+1
+    stats.textContent = `${petName}'s hunger level is: ${petSheep.hunger}
+                        ${petName}'s fatigue level is: ${petSheep.fatigue}
+                        ${petName}'s happiness level is: ${petSheep.happiness}
+                        ${petName}'s wool length is: ${petSheep.woolLength}`
+
+    // console.log(`${petName}'s hunger level is: ${petSheep.hunger}`);
+    // console.log(`${petName}'s fatigue level is: ${petSheep.fatigue}`);
+    // console.log(`${petName}'s happiness level is: ${petSheep.happiness}`);
+    // console.log(`${petName}'s wool length is: ${petSheep.woolLength} units`);
+
+    petSheep.hunger += 5
+    // petSheep.hunger += Math.floor(Math.random()*10)+1
+    petSheep.fatigue += 5
+    petSheep.happiness -= 5
+    petSheep.woolLength += 5
+    // petSheep.fatigue += Math.floor(Math.random()*10)+1
+    // petSheep.happiness -= Math.floor(Math.random()*10)+1
+    // petSheep.woolLength += Math.floor(Math.random()*10)+1
 
     petSheep.checkIfAliveSheep()
   }
   else if (petSheep.stillAlive == false){
-    console.log("GAME OVER! Pet sheep is dead!")
-    window.alert("GAME OVER! Your pet is dead!")
+    console.log(`GAME OVER! You idiot! ${petName} is dead and it's all your fault.`)
+    window.alert(`GAME OVER! You idiot! ${petName} is dead and it's all your fault.`)
     clearInterval(intervalTimerIndividual)
   }
 }
@@ -207,15 +208,25 @@ const gameLoopSheep = () => {
 
 const gameLoopHorse = () => {
   if (petHorse.stillAlive == true){
-      console.log(`${petName}'s hunger level is: ${petHorse.hunger}`);
-      console.log(`${petName}'s fatigue level is: ${petHorse.fatigue}`);
-      console.log(`${petName}'s happiness level is: ${petHorse.happiness}`);
-      console.log(`${petName}'s horse shoe health level is: ${petHorse.horseShoeHealth}`);
+
+    stats.textContent = `${petName}'s hunger level is: ${petHorse.hunger}
+                        ${petName}'s fatigue level is: ${petHorse.fatigue}
+                        ${petName}'s happiness level is: ${petHorse.happiness}
+                        ${petName}'s horse shoe health level is: ${petHorse.horseShoeHealth}`
+
+      // console.log(`${petName}'s hunger level is: ${petHorse.hunger}`);
+      // console.log(`${petName}'s fatigue level is: ${petHorse.fatigue}`);
+      // console.log(`${petName}'s happiness level is: ${petHorse.happiness}`);
+      // console.log(`${petName}'s horse shoe health level is: ${petHorse.horseShoeHealth}`);
   
-      petHorse.hunger += Math.floor(Math.random()*10)+1
-      petHorse.fatigue += Math.floor(Math.random()*10)+1
-      petHorse.happiness -= Math.floor(Math.random()*10)+1
-      petHorse.horseShoeHealth -= Math.floor(Math.random()*10)+1
+      petHorse.hunger += 5
+      petHorse.fatigue += 5
+      petHorse.happiness -= 5
+      petHorse.horseShoeHealth -= 5
+      // petHorse.hunger += Math.floor(Math.random()*10)+1
+      // petHorse.fatigue += Math.floor(Math.random()*10)+1
+      // petHorse.happiness -= Math.floor(Math.random()*10)+1
+      // petHorse.horseShoeHealth -= Math.floor(Math.random()*10)+1
 
       petHorse.checkIfAliveHorse()
   }
@@ -226,13 +237,24 @@ const gameLoopHorse = () => {
   }
 }
 
+start.addEventListener("click", () =>{
+
+  if (blahblah == "Sheep"){
+    gameLoopSheep();    
+  }
+  
+  else if (blahblah == "Horse"){
+    gameLoopHorse();
+  }
+})
+
 // Running the gameloop for you chosen pet (do we need an if/else statement? both do the same thing)
 
 if (blahblah = "Sheep"){
-    IntervalTimerIndividual = setInterval(gameLoopSheep, 1000);
+    intervalTimerIndividual = setInterval(gameLoopSheep(), 1000);
   }
 else {
-    IntervalTimerIndividual = setInterval(gameLoopHorse, 1000);
+    intervalTimerIndividual = setInterval(gameLoopHorse(), 2000);
   }
 
 /* Action buttons for the game
@@ -244,13 +266,17 @@ else {
 
 feed.addEventListener('click', () => {
   if (blahblah = "Sheep"){
-    Sheep.hunger -= Math.floor(Math.random()*10)+5;
+    petSheep.hunger -= 30;
+    // Sheep.hunger -= Math.floor(Math.random()*10)+5;
   }
   else {
-    Horse.hunger -= Math.floor(Math.random()*10)+5;
+    petHorse.hunger -= 30;
+    // Horse.hunger -= Math.floor(Math.random()*10)+5;
   };
 
-  const reloadTime = Math.floor(Math.random() * 5) + 1;
+  const reloadTime = 3;
+  // const reloadTime = Math.floor(Math.random() * 5) + 1;
+
 
   feed.disabled = true;
 
@@ -262,13 +288,16 @@ feed.addEventListener('click', () => {
 
 play.addEventListener('click', () => {
     if (blahblah = "Sheep"){
-      Sheep.happiness += Math.floor(Math.random()*10)+5;
+      petSheep.happiness += 20
+      // petSheep.happiness += Math.floor(Math.random()*10)+5;
     }
     else {
-      Horse.happiness += Math.floor(Math.random()*10)+5;
+      petHorse.happiness += 20
+      // petHorse.happiness += Math.floor(Math.random()*10)+5;
     };
   
-    const reloadTime = Math.floor(Math.random() * 5) + 1;
+    const reloadTime = 2
+    // const reloadTime = Math.floor(Math.random() * 5) + 1;
   
     play.disabled = true;
   
@@ -280,13 +309,16 @@ play.addEventListener('click', () => {
 
 sleep.addEventListener('click', () => {
     if (blahblah = "Sheep"){
-      Sheep.fatigue -= Math.floor(Math.random()*10)+5;
+      petSheep.fatigue -= 2;
+      // petSheep.fatigue -= Math.floor(Math.random()*10)+5;
     }
     else {
-      Horse.fatigue -= Math.floor(Math.random()*10)+5;
+      petHorse.fatigue -= 2;
+      // petHorse.fatigue -= Math.floor(Math.random()*10)+5;
     };
   
-    const reloadTime = Math.floor(Math.random() * 5) + 1;
+    const reloadTime = 2;
+    // const reloadTime = Math.floor(Math.random() * 5) + 1;
   
     sleep.disabled = true;
   
@@ -297,9 +329,11 @@ sleep.addEventListener('click', () => {
 
 
 shear.addEventListener('click', () => {
-    Sheep.woolLength -= Math.floor(Math.random() * 10) + 5
+    petSheep.woolLength -= 3;
+    // petSheep.woolLength -= Math.floor(Math.random() * 10) + 5;
   
-    const reloadTime = Math.floor(Math.random() * 5) + 1;
+    const reloadTime = 3;
+    // const reloadTime = Math.floor(Math.random() * 5) + 1;
   
     shear.disabled = true;
   
@@ -310,9 +344,11 @@ shear.addEventListener('click', () => {
 
 
   change.addEventListener('click', () => {
-    Horse.horseShoeHealth += Math.floor(Math.random()*10)+5;
+    petHorse.horseShoeHealth += 3;
+    // petHorse.horseShoeHealth += Math.floor(Math.random()*10)+5;
 
-    const reloadTime = Math.floor(Math.random() * 5) + 1;
+    const reloadTime = 3;
+    // const reloadTime = Math.floor(Math.random() * 5) + 1;
   
     change.disabled = true;
   
