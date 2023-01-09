@@ -204,7 +204,7 @@ const timingFunctionSheep = () => {
     petSheep.fatigue += Math.floor(Math.random()*10)+3
     petSheep.happiness -= Math.floor(Math.random()*10)+3
     petSheep.woolLength += Math.floor(Math.random()*10)+3
-    petSheep.checkIfAliveSheep();
+    
     gameLoopSheep();
   }, 2000)
 }
@@ -217,10 +217,10 @@ const timingFunctionSheep = () => {
 const gameLoopSheep = () => {
   
   if (petSheep.stillAlive == true){
-    
+    petSheep.checkIfAliveSheep();
     renderSheep()  
     timingFunctionSheep()
-      
+    
     // console.log(`${petName}'s hunger level is: ${petSheep.hunger}`);
     // console.log(`${petName}'s fatigue level is: ${petSheep.fatigue}`);
     // console.log(`${petName}'s happiness level is: ${petSheep.happiness}`);
@@ -266,12 +266,13 @@ const timingFunctionHorse = () => {
     petHorse.fatigue += Math.floor(Math.random()*10)+3
     petHorse.happiness -= Math.floor(Math.random()*10)+3
     petHorse.horseShoeHealth -= Math.floor(Math.random()*10)+3
-    petHorse.checkIfAliveHorse();
+    
     gameLoopHorse();
-  }, 2000)
+  }, 3000)
 }
 const gameLoopHorse = () => {
   if (petHorse.stillAlive == true){
+    petHorse.checkIfAliveHorse();
     renderHorse();
     timingFunctionHorse();
 

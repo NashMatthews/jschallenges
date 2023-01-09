@@ -13,7 +13,6 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
 #navbar a {
@@ -23,12 +22,12 @@ body{
   text-decoration: none;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: block;
-
 }
+
 .topnav.icon {
 display: none;
-
 }
+
 /* #navbar a {
    color: black;
    font-size: 25px;
@@ -53,11 +52,13 @@ display: none;
 
   /* add type of color on the color: ; code e.g. blue, yellow, white ,black,
   The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model- could you use flexbox as substitute */
+
 }
 .intro{
 /* color: ; */
 transform:translate(0px, 25px);
 }
+
 .img1, .img2{
 height: auto;
 width: 100%;
@@ -67,7 +68,6 @@ transform: translate(0px,75px);
 box-shadow: 0px 0px 60px 15px black;
 display: flex;
 }
-
 
 div {
 display: flex;
@@ -130,4 +130,3 @@ transform:translate(160px, -305px);
   align-items: center;
   margin-top: 150px;
 }
-
