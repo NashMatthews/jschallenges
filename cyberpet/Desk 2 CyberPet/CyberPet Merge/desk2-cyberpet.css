@@ -1,31 +1,13 @@
 /* cyberpet CSS BY desk 2 (John & Mohsin) */
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Covered+By+Your+Grace&family=Gloria+Hallelujah&family=Inspiration&family=Josefin+Sans&family=Jost&family=Kaushan+Script&family=Luckiest+Guy&family=Marck+Script&family=Nanum+Pen+Script&family=Patrick+Hand&family=Red+Hat+Display:ital,wght@1,500&family=Sevillana&family=Special+Elite&display=swap');
+
 *{
   margin: 0px;
 }
 
 body{
   background-color: lightgoldenrodyellow;
-}
-
-#navbar {
-  background-color:aqua;
-  height: 100px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-#navbar a {
-  color: black;
-  font-size: 25px;
-  background-color: none;
-  text-decoration: none;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  display: block;
-}
-
-.topnav.icon {
-display: none;
 }
 
 /* #navbar a {
@@ -36,36 +18,36 @@ display: none;
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 } */
 
-#navbar a:hover{
-  color: grey;
-}
-
 .gameTitle{
-  color:green ;
-  font-size: 60px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  border:solid 5px;
+  color:rgb(117, 228, 137) ;
+  font-size: 170px;
+  font-family: 'Inspiration', cursive;
+  /* border:solid 5px; */
   text-align: center;
   margin-top: 30px;
   border-radius: 15px;
-  padding: 10px;
+  /* padding: 10px; */
 
   /* add type of color on the color: ; code e.g. blue, yellow, white ,black,
   The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model- could you use flexbox as substitute */
 
 }
 .intro{
-/* color: ; */
+color: rgb(142, 164, 234);
 transform:translate(0px, 25px);
+text-align: center;
+font-family: 'Nanum Pen Script', cursive;
+font-size: 25pt;
 }
 
 .img1, .img2{
 height: auto;
 width: 100%;
 max-width: 300px;
+max-height: 300px;
 border: solid ;
 transform: translate(0px,75px);
-box-shadow: 0px 0px 60px 15px black;
+box-shadow: 0px 0px 5px .3px black;
 display: flex;
 }
 
@@ -74,25 +56,67 @@ display: flex;
 justify-content: center;
 }
 
+#placeholder{
+  color: rgb(230, 118, 193);
+  font-family: 'Marck Script', cursive;
+  font-size: 35pt;
+}
+
 #input{
   margin-top: 6px;
+  height: 28px;
+  width: 350px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 25pt;
 }
 
 #name, #sheep, #horse{
-  background-color: black;
-  color: white;
+  background-color: rgb(136, 228, 176);
+  color: rgb(47, 47, 47);
   border-color: white;
   border-width: 4px;
-  font-size: 16px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 30px;
   margin: 5px;
   border-radius: 5px;
 }
 
-#feed, #play, #sleep, #shear, #change, #start{
-  background-color: transparent;
+#start{
+  background-color: rgb(254, 197, 148);
   color: black;
   border-width: 4px;
-  font-size: 16px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 30px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#stats{
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 22px;
+}
+
+.actions{
+  display: flex;
+  flex-direction: row;
+}
+
+#feed, #play, #sleep, #shear, #change{
+  background-color: rgb(254, 197, 148);
+  color: black;
+  border-width: 4px;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 30px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#feed:disabled, #play:disabled, #sleep:disabled, #shear:disabled, #change:disabled{
+  background-color: black;
+  color: rgb(254, 197, 148);
+  border-width: 4px;
+  font-family: 'Josefin+Sans', sans-serif;
+  font-size: 22px;
   margin: 5px;
   border-radius: 5px;
 }
@@ -130,3 +154,4 @@ transform:translate(160px, -305px);
   align-items: center;
   margin-top: 150px;
 }
+
