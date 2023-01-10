@@ -34,6 +34,8 @@ const change = document.getElementById("change");
 const music1 = document.getElementById("music1");
 const music2 = document.getElementById("music2");
 const gameovertheme = document.getElementById("gameover");
+const imghorse = document.getElementById("horsePic");
+const imgsheep = document.getElementById("sheepPic");
 
 function maintheme() {
   music1.volume = 0.08;
@@ -105,25 +107,25 @@ let intervalTimerIndividual;
 
 // hide all animal selection and action buttons
 
-sheep.style.visibility = "hidden";
-horse.style.visibility = "hidden";
-start.style.visibility = "hidden";
-feed.style.visibility = "hidden";
-sleep.style.visibility = "hidden";
-play.style.visibility = "hidden";
-shear.style.visibility = "hidden";
-change.style.visibility = "hidden";
+sheep.style.display = "none";
+horse.style.display = "none";
+start.style.display = "none";
+feed.style.display = "none";
+sleep.style.display = "none";
+play.style.display = "none";
+shear.style.display = "none";
+change.style.display = "none";
 
 // STEP 1 - Input pet's name and click 'Submit'
 
 submit.addEventListener("click", () =>{
     maintheme();
     petName = input.value;
-    placeholder.textContent = `Your pet's name is ${petName}! What a fantastic name! Now, is ${petName} a sheep or a horse? Those are your options`;
+    placeholder.textContent = `Your pet's name is ${petName}! What a fantastic name! Now, is ${petName} a sheep or a horse? Those are you options`;
     submit.style.display = "none";
     input.style.display = "none";
-    sheep.style.visibility = "visible";
-    horse.style.visibility = "visible";
+    sheep.style.display = "block";
+    horse.style.display = "block";
     new BasePet(petName, "", 50, 50, 50, true);
 });
 
@@ -141,10 +143,11 @@ const horseish = () => {
 
 sheep.addEventListener("click", () =>{
     placeholder.textContent = `${petName} the sheep!? Baaa-utiful!`;
-    start.style.visibility = "visible";
-    sheep.style.visibility = "hidden";
-    horse.style.visibility = "hidden";
+    start.style.display = "block";
+    sheep.style.display = "none";
+    horse.style.display = "none";
     sheepish();
+    imghorse.style.display = "none";
 });
 
 /* a new 'Horse' class is declared using the class extender... I THINK???
@@ -152,10 +155,11 @@ sheep.addEventListener("click", () =>{
 
 horse.addEventListener("click", () =>{
     placeholder.textContent = `Is ${petName} a sheep? Neigh, it's a horse!!!`;
-    start.style.visibility = "visible";
-    sheep.style.visibility = "hidden";
-    horse.style.visibility = "hidden";  
+    start.style.display = "block";
+    sheep.style.display = "none";
+    horse.style.display = "none";  
     horseish();
+    imgsheep.style.display = "none";
 });
 
 /* STEP 3 - Click 'Start Game' button
@@ -165,18 +169,20 @@ different loop starts depending on the animal
 */
 
 start.addEventListener("click", () =>{
-  feed.style.visibility = "visible";
-  sleep.style.visibility = "visible";
-  play.style.visibility = "visible";
+  feed.style.display = "block";
+  sleep.style.display = "block";
+  play.style.display = "block";
+  placeholder.style.display = "none";
+  start.style.display = "none";
   gametheme()
 
   if (animals == "Sheep"){
-    shear.style.visibility = "visible";
+    shear.style.display = "block";
     gameLoopSheep();
     // intervalTimerIndividual = setInterval(gameLoopSheep(), 1000);
   }  
   else if (animals == "Horse"){
-    change.style.visibility = "visible";
+    change.style.display = "block";
     gameLoopHorse();
     // intervalTimerIndividual = setInterval(gameLoopHorse(), 2000);
   }
